@@ -67,7 +67,7 @@ namespace MeowTimerWPF
             else
                 TimerText.Text = BaseTime;
 
-            CurrentSound.Text = "Current Sound " + SonPath.Split($"/")[1];
+            CurrentSound.Text = SonPath.Split($"/")[1];
 
             player = new SoundPlayer(SonPath);
 

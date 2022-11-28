@@ -8,26 +8,33 @@
         Title="Meow Timer Aqueuse" Height="450" Width="800"
     xmlns:System="clr-namespace:System;assembly=System.Runtime">
     <Grid x:Name="LaGrid" Background="Black" Margin="0,0,0,-6">
-        <Grid x:Name="TopAPP" Margin="0,10,0,0" VerticalAlignment="Top">
+        <Grid x:Name="TopAPP" Margin="15,13,15,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
 
-            <TextBox x:Name="TimerText" TextWrapping="Wrap" Text="00:00:02" VerticalAlignment="Top" Width="120" Foreground="Red" TextAlignment="Center" Background="{x:Null}" BorderBrush="Red" Margin="0,10,0,0" FontSize="18"/>
+            </Grid.RowDefinitions>
 
-            <Image x:Name="NekoImg" Height="172" Margin="0,35,0,0" VerticalAlignment="Top" Width="172" Stretch="Fill"/>
-            <Button x:Name="LightMode" Content="Aqueuse Version" Margin="660,10,0,0" VerticalAlignment="Top" Width="110" Click="LightMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red"/>
-            <Button x:Name="DarkMode" Content="Humain Version" Margin="660,35,0,0" VerticalAlignment="Top" Width="110" Click="DarkMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="TimerText" TextWrapping="Wrap" Text="00:00:02" VerticalAlignment="Top" Width="120" Foreground="Red" TextAlignment="Center" Background="{x:Null}" BorderBrush="Red" Margin="0,10,0,0" FontSize="18"/>
 
-        </Grid>
-        <Grid x:Name="BottomAPP" Margin="0,291,0,0" VerticalAlignment="Top">
+            <Image Grid.Row="0" Grid.Column="1" x:Name="NekoImg" Margin="0,35,0,0"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="LightMode" Content="Aqueuse Version" Margin="0,10,10,0" VerticalAlignment="Top" Click="LightMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red" HorizontalAlignment="Right" Width="118"/>
+            <Button Grid.Row="0" Grid.Column="2" x:Name="DarkMode" Content="Humain Version" Margin="0,35,10,0" VerticalAlignment="Top" Click="DarkMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red" HorizontalAlignment="Right" Width="118"/>
 
-            <Button x:Name="StartButton" Content="Start" VerticalAlignment="Top" Click="StartButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Visible" FontSize="18"/>
-            <Button x:Name="PauseButton" Content="Pause" VerticalAlignment="Top" Click="PauseButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" Margin="335,0,400,0" HorizontalAlignment="Center"/>
-            <Button x:Name="StopButton" Content="Stop" Margin="400,0,335,0" VerticalAlignment="Top" Click="StopButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" HorizontalAlignment="Center"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="StartButton" Content="Start" VerticalAlignment="Top" Click="StartButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Visible" FontSize="18" HorizontalAlignment="Center" Margin="0,74,0,0"/>
+            <Button Grid.Row="1" x:Name="PauseButton" Content="Pause" Click="PauseButton_Click" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" Margin="10,74,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Width="65"/>
+            <Button Grid.Row="1" Grid.Column="1" x:Name="StopButton" Content="Stop" Margin="0,74,10,0" VerticalAlignment="Top" Click="StopButton_Click" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" HorizontalAlignment="Right" Width="65"/>
 
-            <ProgressBar x:Name="progressBar1" Height="10" Margin="0,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="#FFFF00AC" Background="{x:Null}" BorderBrush="Red"/>
+            <ProgressBar Grid.Row="1" x:Name="progressBar1" Height="10" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="#FFFF00AC" Background="{x:Null}" BorderBrush="Red" Grid.ColumnSpan="3" Margin="0,184,0,0"/>
 
-            <TextBlock x:Name="totaltime" Margin="0,70,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="120" TextAlignment="Center" Foreground="Red" FontSize="18"/>
-            <TextBlock x:Name="sectime" Margin="0,49,0,0" TextWrapping="Wrap" Text="0 Seconds" VerticalAlignment="Top" Width="120" Foreground="Red" TextAlignment="Center" FontSize="18"/>
-            <TextBlock x:Name="CurrentSound" Margin="10,25,10,46" TextWrapping="Wrap" Text="Current Sound Cat_Purring.wav" Foreground="Red"  TextAlignment="Center" FontSize="18" />
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="totaltime" Margin="0,138,10,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" TextAlignment="Center" Foreground="Red" FontSize="18"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="sectime" Margin="0,161,0,0" TextWrapping="Wrap" Text="0 Seconds" VerticalAlignment="Top" Foreground="Red" TextAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="CurrentSound" Margin="0,109,0,0" TextWrapping="Wrap" Text="Cat_Purring.wav" Foreground="Red"  TextAlignment="Center" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Center" Width="256" />
 
         </Grid>
     </Grid>
