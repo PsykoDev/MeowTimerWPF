@@ -1,9 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Media;
-using System.Numerics;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
@@ -24,9 +22,18 @@ namespace MeowTimerWPF
         bool color = false;
         string BaseTime = "00:05:00";
 
+        string LightBackColor;
+        string LightForeColor;
+        string LightBorderColor;
+
+        string DarkBackColor;
+        string DarkForeColor;
+        string DarkBorderColor;
 
         public MainWindow()
         {
+            object balek = new();
+            RoutedEventArgs ouai = new();
             Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
 
             InitializeComponent();
@@ -43,9 +50,17 @@ namespace MeowTimerWPF
                 NekoImg.Source = new BitmapImage(new Uri(ImgPath, UriKind.RelativeOrAbsolute));
 
             if (Build.Config.color)
-            { LaGrid.Background = Brushes.White; color = true; }
+            {
+
+                color = true;
+                LightMode_Click(balek, ouai);
+            }
             else
-            { LaGrid.Background = Brushes.Black; color = false; }
+            {
+                color = false;
+                DarkMode_Click(balek, ouai);
+            }
+                
 
             if (Build.Config.Timer != null)
                 TimerText.Text = Build.Config.Timer;
@@ -55,12 +70,13 @@ namespace MeowTimerWPF
             CurrentSound.Text = "Current Sound " + SonPath.Split($"/")[1];
 
             player = new SoundPlayer(SonPath);
+
             player.Load();
         }
 
         async void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            await build.JsonUpdate(ImgPath, SonPath, color, BaseTime);
+            await build.JsonUpdate(ImgPath, SonPath, color, BaseTime, LightBackColor, LightForeColor, LightBorderColor, DarkBackColor, DarkForeColor, DarkBorderColor);
         }
 
         private async void LoadJSON()
@@ -180,13 +196,67 @@ namespace MeowTimerWPF
         private void LightMode_Click(object sender, RoutedEventArgs e)
         {
             color = true;
-            LaGrid.Background = Brushes.White; 
+
+            LightBackColor = Build.Config.LightBackColor;
+            LightForeColor = Build.Config.LightForeColor;
+            LightBorderColor = Build.Config.LightBorderColor;
+            SetBackColor(LightBackColor);
+            SetForeolor(LightForeColor);
+            SetBorderColor(LightBorderColor);
         }
 
         private void DarkMode_Click(object sender, RoutedEventArgs e)
         {
             color = false;
-            LaGrid.Background = Brushes.Black;
+
+            DarkBackColor = Build.Config.DarkBackColor;
+            DarkForeColor = Build.Config.DarkForeColor;
+            DarkBorderColor = Build.Config.DarkBorderColor;
+            SetBackColor(DarkBackColor);
+            SetForeolor(DarkForeColor);
+            SetBorderColor(DarkBorderColor);
+        }
+
+
+        private void SetBackColor(string color)
+        {
+            byte r = byte.Parse(color.Split(",")[0]);
+            byte g = byte.Parse(color.Split(",")[1]);
+            byte b = byte.Parse(color.Split(",")[2]);
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(r, g, b));
+            LaGrid.Background = brush;
+        }
+
+        private void SetForeolor(string color)
+        {
+            byte r = byte.Parse(color.Split(",")[0]);
+            byte g = byte.Parse(color.Split(",")[1]);
+            byte b = byte.Parse(color.Split(",")[2]);
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(r, g, b));
+            TimerText.Foreground = brush;
+            LightMode.Foreground = brush;
+            DarkMode.Foreground = brush;
+            StartButton.Foreground = brush;
+            PauseButton.Foreground = brush;
+            StopButton.Foreground = brush;
+            totaltime.Foreground = brush;
+            sectime.Foreground = brush;
+            CurrentSound.Foreground = brush;
+        }
+
+        private void SetBorderColor(string color)
+        {
+            byte r = byte.Parse(color.Split(",")[0]);
+            byte g = byte.Parse(color.Split(",")[1]);
+            byte b = byte.Parse(color.Split(",")[2]);
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(r, g, b));
+            TimerText.BorderBrush = brush;
+            LightMode.BorderBrush = brush;
+            DarkMode.BorderBrush = brush;
+            StartButton.BorderBrush = brush;
+            PauseButton.BorderBrush = brush;
+            StopButton.BorderBrush = brush;
+            progressBar1.BorderBrush = brush;
         }
     }
 }
