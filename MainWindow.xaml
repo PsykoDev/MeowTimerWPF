@@ -1,0 +1,34 @@
+﻿<Window x:Class="MeowTimerWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MeowTimerWPF"
+        mc:Ignorable="d"
+        Title="Meow Timer Aqueuse" Height="450" Width="800"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    <Grid x:Name="LaGrid" Background="Black" Margin="0,0,0,-6">
+        <Grid x:Name="TopAPP" Margin="0,10,0,0" VerticalAlignment="Top">
+
+            <TextBox x:Name="TimerText" TextWrapping="Wrap" Text="00:00:02" VerticalAlignment="Top" Width="120" Foreground="Red" TextAlignment="Center" Background="{x:Null}" BorderBrush="Red" Margin="0,10,0,0" FontSize="18"/>
+
+            <Image x:Name="NekoImg" Height="172" Margin="0,35,0,0" VerticalAlignment="Top" Width="172" Stretch="Fill"/>
+            <Button x:Name="LightMode" Content="Aqueuse Version" Margin="660,10,0,0" VerticalAlignment="Top" Width="110" Click="LightMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red"/>
+            <Button x:Name="DarkMode" Content="Humain Version" Margin="660,35,0,0" VerticalAlignment="Top" Width="110" Click="DarkMode_Click"  Background="{x:Null}" Foreground="Red" BorderBrush="Red"/>
+
+        </Grid>
+        <Grid x:Name="BottomAPP" Margin="0,291,0,0" VerticalAlignment="Top">
+
+            <Button x:Name="StartButton" Content="Start" VerticalAlignment="Top" Click="StartButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Visible" FontSize="18"/>
+            <Button x:Name="PauseButton" Content="Pause" VerticalAlignment="Top" Click="PauseButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" Margin="335,0,400,0" HorizontalAlignment="Center"/>
+            <Button x:Name="StopButton" Content="Stop" Margin="400,0,335,0" VerticalAlignment="Top" Click="StopButton_Click" Width="65" Background="{x:Null}" Foreground="Red" BorderBrush="Red" Visibility="Hidden" FontSize="18" HorizontalAlignment="Center"/>
+
+            <ProgressBar x:Name="progressBar1" Height="10" Margin="0,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="#FFFF00AC" Background="{x:Null}" BorderBrush="Red"/>
+
+            <TextBlock x:Name="totaltime" Margin="0,70,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="120" TextAlignment="Center" Foreground="Red" FontSize="18"/>
+            <TextBlock x:Name="sectime" Margin="0,49,0,0" TextWrapping="Wrap" Text="0 Seconds" VerticalAlignment="Top" Width="120" Foreground="Red" TextAlignment="Center" FontSize="18"/>
+            <TextBlock x:Name="CurrentSound" Margin="10,25,10,46" TextWrapping="Wrap" Text="Current Sound Cat_Purring.wav" Foreground="Red"  TextAlignment="Center" FontSize="18" />
+
+        </Grid>
+    </Grid>
+</Window>

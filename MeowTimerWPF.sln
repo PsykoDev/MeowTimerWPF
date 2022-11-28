@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeowTimerWPF", "MeowTimerWPF.csproj", "{778311EB-3AF4-43EC-BD9E-B2A16040E122}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{778311EB-3AF4-43EC-BD9E-B2A16040E122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{778311EB-3AF4-43EC-BD9E-B2A16040E122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{778311EB-3AF4-43EC-BD9E-B2A16040E122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{778311EB-3AF4-43EC-BD9E-B2A16040E122}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCD9E381-99F8-4599-B5AF-8B0A452F0F4C}
+	EndGlobalSection
+EndGlobal
