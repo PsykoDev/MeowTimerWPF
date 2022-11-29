@@ -76,6 +76,13 @@ namespace MeowTimerWPF
 
         async void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            LightBackColor = Build.Config.LightBackColor;
+            LightForeColor = Build.Config.LightForeColor;
+            LightBorderColor = Build.Config.LightBorderColor;
+
+            DarkBackColor = Build.Config.DarkBackColor;
+            DarkForeColor = Build.Config.DarkForeColor;
+            DarkBorderColor = Build.Config.DarkBorderColor;
             await build.JsonUpdate(ImgPath, SonPath, color, BaseTime, LightBackColor, LightForeColor, LightBorderColor, DarkBackColor, DarkForeColor, DarkBorderColor);
         }
 
